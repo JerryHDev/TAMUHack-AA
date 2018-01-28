@@ -29,6 +29,7 @@ function user(req, res) {
 };
 
 function flight(req, res) {
+    console.log(req);
     let dateString = _.get(req, "swagger.params.date.value");
     let flightNumber = _.get(req, "swagger.params.flightNumber.value");
     if (!dateString || !flightNumber) {

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Get Flights HTTP Get Test</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+		var endpoint = "https://aa-team-jerry.herokuapp.com/flight"
+
+		console.log(endpoint)
+		var params = {
+			flightNumber: "2626"
+			date: "2018-10-03"
+		}
+	
+
+	 	var curlURL = endpoint + "?" + Object
+	        .keys(params)
+	        .map(function(key){
+	          return key+"="+encodeURIComponent(params[key])
+	        })
+	        .join("&")
+
+	    var xmlHttp = new XMLHttpRequenst();
+	    xmlHttp.open("GET", curlURL, false);
+	    xmlHttp.send(null);
+	    request.onreadystatechange = function() {
+		  if (request.readyState == 4)
+		    show(request.responseText.length);
+		};
+
+		console.log(request.responseText)
+
+</script>
+
+</body>
+</html>
+	
