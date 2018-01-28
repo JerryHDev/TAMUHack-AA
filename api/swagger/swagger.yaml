@@ -160,12 +160,12 @@ paths:
             description: "Flight number for the desired flight"
             required: true
             type: string
-          # - name: date
-          #   in: query
-          #   description: "Departure date for the desired flight (e.g., \"2018-03-01T08:45-06:00\")"
-          #   required: true
-          #   type: string
-          #   format: date-time
+          - name: date
+            in: query
+            description: "Departure date for the desired flight (e.g., \"2018-03-01T08:45-06:00\")"
+            required: true
+            type: string
+            format: date-time
       responses:
         "200":
           description: Success
