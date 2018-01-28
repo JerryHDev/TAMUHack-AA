@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Get Routes</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+
+		var endpoint = "https://api.flightplandatabase.com/search/plans?";
+
+		var fromICAO = "fromICAO=KAUS";
+		var toICAO = "toICAO=KLAX";
+
+		var curlURL = (endpoint + fromICAO + "&" + toICAO);
+
+		console.log(curlURL);
+		
+		var xhr = createCORSRequest('GET', curlURL);
+		xhr.send();
+
+	    // var xmlHttp = new XMLHttpRequest();
+	    // xmlHttp.open("GET", curlURL, false);
+	    // xmlHttp.send(null);
+	    
+	    var json = xhr.responseText, obj = JSON.parse(json);
+
+	    console.log("The json file: " + json);
+
+
+
+	</script>
+
+</body>
+</html>

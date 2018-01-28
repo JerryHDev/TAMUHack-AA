@@ -7,31 +7,25 @@
 
 <script type="text/javascript">
 
-		var endpoint = "https://aa-team-jerry.herokuapp.com/flight"
+		var endpoint = "https://aa-team-jerry.herokuapp.com/flight?flightNumber=";
 
-		console.log(endpoint)
-		var params = {
-			flightNumber: "2626"
-			date: "2018-10-03"
-		}
+		var flightNumber = "2626";
+		var date = "2018-10-03";
+
+		var endpoint2 = (endpoint + flightNumber + "&" + "date=" + date);
+		
 	
 
-	 	var curlURL = endpoint + "?" + Object
-	        .keys(params)
-	        .map(function(key){
-	          return key+"="+encodeURIComponent(params[key])
-	        })
-	        .join("&")
 
-	    var xmlHttp = new XMLHttpRequenst();
-	    xmlHttp.open("GET", curlURL, false);
+	    var xmlHttp = new XMLHttpRequest();
+	    xmlHttp.open("GET", endpoint2, false);
 	    xmlHttp.send(null);
-	    request.onreadystatechange = function() {
-		  if (request.readyState == 4)
-		    show(request.responseText.length);
-		};
+	    
+	    var json = xmlHttp.responseText, obj = JSON.parse(json);
 
-		console.log(request.responseText)
+	    console.log("Flight number: " + obj.flightNumber + ", origin: " + obj.origin + ", dest: " + obj.destination + " Status: " + obj.flightStatus);
+
+		
 
 </script>
 
